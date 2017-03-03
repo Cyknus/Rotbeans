@@ -22,5 +22,12 @@
             <br>
             <button>Aceptar</button>
         </form>
+        
+        <hr>
+        <h2>Buscar por correo</h2>
+        <form method="GET" action="/practica1/email">
+            <input id="email" name="email" type="email" placeholder="Correo" value=""/>
+            <button>Buscar</button>
+        </form> 
     </body>
 </html>

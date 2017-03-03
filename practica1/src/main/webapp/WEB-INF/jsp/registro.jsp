@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Registro</h1>
-        <form method="GET" action="/practica1/registrado">
+        <form method="GET" action="/practica1/signup">
             <label>Nombre: </label>
             <input id="name" name="name" type="text" placeholder="prro">
             <br>

@@ -17,4 +17,30 @@
         p:url="${jdbc.url}"
         p:username="${jdbc.username}"
         p:password="${jdbc.password}"/>
+    
+     <bean id="hibernate4AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>is.mapeo.Persona</value>
+                <value>is.mapeo.User</value>
+            </list>
+        </property>   
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">false</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!--  Se agrega para poder inyectarlo a los Controladores -->
+    <bean id="PersonaDAO" class="is.modelo.PersonaDAO"
+        p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"
+    />
+    
+    <bean id="UserDAO" class="is.modelo.UserDAO"
+        p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"
+    />
 </beans>
